@@ -66,13 +66,20 @@ def forge():
 
 @app.route('/')
 def index():
-    user = User.query.first()
+
     movies = Movie.query.all()
-    return render_template("index.html",name = name,movies = movies)
+    return render_template("index.html",movies=movies)
 
 
+@app.errorhandler(404)
+def page_not_found(error):
 
+    return render_template("404.html"),404
 
+@app.context_processor
+def inject_user():
+    user = User.query.first()
+    return dict(user=user) # return {'user': user}
 
 
 
