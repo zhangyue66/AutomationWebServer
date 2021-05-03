@@ -17,7 +17,7 @@ else:
 
 app = Flask(__name__)
 app.config["SECRET_KEY"] = "dev"
-app.config["SQLALCHEMY_DATABASE_URI"] = prefix + os.path.join(app.root_path,"data.db")
+app.config["SQLALCHEMY_DATABASE_URI"] = prefix + os.path.join(app.root_path, "../../data.db")
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False # shutdown the monitor for Model
 
 db = SQLAlchemy(app)
